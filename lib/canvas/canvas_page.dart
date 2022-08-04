@@ -23,11 +23,13 @@ class _CanvasPageState extends ConsumerState<CanvasPage> {
   @override
   void initState() {
     super.initState();
+    // Takes 10 seconds!
     data = JsonWidgetData.fromDynamic(widget.data.node);
   }
 
   @override
   Widget build(BuildContext context) {
+    // Takes 6ms
     _built ??= data?.build(context: context);
 
     return _built ?? const SizedBox.shrink();
