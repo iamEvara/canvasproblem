@@ -11,6 +11,7 @@ class CanvasComponentData {
   GlobalKey gKey;
   UniqueKey uKey;
   Map<String, dynamic> node;
+
   CanvasComponentData({
     required this.id,
     required this.label,
