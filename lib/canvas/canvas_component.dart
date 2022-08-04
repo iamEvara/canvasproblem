@@ -8,7 +8,6 @@ import '../models/export.dart';
 class CanvasComponent extends ConsumerStatefulWidget {
   const CanvasComponent({
     Key? key,
-    required this.uKey,
     this.startingOffset = Offset.zero,
     required this.id,
     required this.child,
@@ -16,7 +15,6 @@ class CanvasComponent extends ConsumerStatefulWidget {
     this.size = const Size(200, 100),
   }) : super(key: key);
   final Offset startingOffset;
-  final UniqueKey uKey;
   final String id;
   final int index;
   final Size size;
