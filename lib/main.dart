@@ -37,42 +37,37 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatefulWidget {
+class MyHomePage extends ConsumerStatefulWidget {
   const MyHomePage({Key? key}) : super(key: key);
 
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  ConsumerState<MyHomePage> createState() => _MyHomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MyHomePageState extends ConsumerState<MyHomePage> {
   @override
   Widget build(BuildContext context) {
+    final canvasStateNotifier = ref.read(canvasSP.notifier);
+
     return Scaffold(
       appBar: AppBar(
         title: const Text("Flutter Example"),
         actions: [
-          Consumer(builder: (context, ref, child) {
-            final canvasStateNotifier = ref.read(canvasSP.notifier);
-            return Row(
-              children: [
-                IconButton(
-                  tooltip: "Zoom in",
-                  onPressed: () => canvasStateNotifier.zoomIn(),
-                  icon: const Icon(Icons.add),
-                ),
-                IconButton(
-                  tooltip: "Reset View",
-                  onPressed: () => canvasStateNotifier.resetCanvasView(),
-                  icon: const Icon(Icons.restart_alt),
-                ),
-                IconButton(
-                  tooltip: "Zoom out",
-                  onPressed: () => canvasStateNotifier.zoomOut(),
-                  icon: const Icon(Icons.remove),
-                ),
-              ],
-            );
-          })
+          IconButton(
+            tooltip: "Zoom in",
+            onPressed: canvasStateNotifier.zoomIn,
+            icon: const Icon(Icons.add),
+          ),
+          IconButton(
+            tooltip: "Reset View",
+            onPressed: canvasStateNotifier.resetCanvasView,
+            icon: const Icon(Icons.restart_alt),
+          ),
+          IconButton(
+            tooltip: "Zoom out",
+            onPressed: canvasStateNotifier.zoomOut,
+            icon: const Icon(Icons.remove),
+          ),
         ],
       ),
       body: Center(
@@ -83,19 +78,16 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
         ),
       ),
-      floatingActionButton: Consumer(builder: (context, ref, child) {
-        final canvasStateNotifier = ref.read(canvasSP.notifier);
-        return FloatingActionButton(
-          onPressed: () => canvasStateNotifier.addComponent(
-            bankExampleComponent.copyWith(
-              id: const Uuid().v4(),
-              label: "New Frame",
-            ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => canvasStateNotifier.addComponent(
+          bankExampleComponent.copyWith(
+            id: const Uuid().v4(),
+            label: "New Frame",
           ),
-          tooltip: 'Add Component',
-          child: const Icon(Icons.add),
-        );
-      }),
+        ),
+        tooltip: 'Add Component',
+        child: const Icon(Icons.add),
+      ),
     );
   }
 }
