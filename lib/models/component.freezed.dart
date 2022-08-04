@@ -21,10 +21,7 @@ mixin _$CanvasComponentData {
   Offset get position => throw _privateConstructorUsedError;
   Offset get startComponentPosition => throw _privateConstructorUsedError;
   Offset get startFocalPosition => throw _privateConstructorUsedError;
-  Size get size => throw _privateConstructorUsedError; // required Widget child,
-  GlobalKey<State<StatefulWidget>> get gKey =>
-      throw _privateConstructorUsedError;
-  UniqueKey get uKey => throw _privateConstructorUsedError;
+  Size get size => throw _privateConstructorUsedError;
   Map<String, dynamic> get node => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -44,8 +41,6 @@ abstract class $CanvasComponentDataCopyWith<$Res> {
       Offset startComponentPosition,
       Offset startFocalPosition,
       Size size,
-      GlobalKey<State<StatefulWidget>> gKey,
-      UniqueKey uKey,
       Map<String, dynamic> node});
 }
 
@@ -66,8 +61,6 @@ class _$CanvasComponentDataCopyWithImpl<$Res>
     Object? startComponentPosition = freezed,
     Object? startFocalPosition = freezed,
     Object? size = freezed,
-    Object? gKey = freezed,
-    Object? uKey = freezed,
     Object? node = freezed,
   }) {
     return _then(_value.copyWith(
@@ -95,14 +88,6 @@ class _$CanvasComponentDataCopyWithImpl<$Res>
           ? _value.size
           : size // ignore: cast_nullable_to_non_nullable
               as Size,
-      gKey: gKey == freezed
-          ? _value.gKey
-          : gKey // ignore: cast_nullable_to_non_nullable
-              as GlobalKey<State<StatefulWidget>>,
-      uKey: uKey == freezed
-          ? _value.uKey
-          : uKey // ignore: cast_nullable_to_non_nullable
-              as UniqueKey,
       node: node == freezed
           ? _value.node
           : node // ignore: cast_nullable_to_non_nullable
@@ -125,8 +110,6 @@ abstract class _$$_CanvasComponentDataCopyWith<$Res>
       Offset startComponentPosition,
       Offset startFocalPosition,
       Size size,
-      GlobalKey<State<StatefulWidget>> gKey,
-      UniqueKey uKey,
       Map<String, dynamic> node});
 }
 
@@ -149,8 +132,6 @@ class __$$_CanvasComponentDataCopyWithImpl<$Res>
     Object? startComponentPosition = freezed,
     Object? startFocalPosition = freezed,
     Object? size = freezed,
-    Object? gKey = freezed,
-    Object? uKey = freezed,
     Object? node = freezed,
   }) {
     return _then(_$_CanvasComponentData(
@@ -178,14 +159,6 @@ class __$$_CanvasComponentDataCopyWithImpl<$Res>
           ? _value.size
           : size // ignore: cast_nullable_to_non_nullable
               as Size,
-      gKey: gKey == freezed
-          ? _value.gKey
-          : gKey // ignore: cast_nullable_to_non_nullable
-              as GlobalKey<State<StatefulWidget>>,
-      uKey: uKey == freezed
-          ? _value.uKey
-          : uKey // ignore: cast_nullable_to_non_nullable
-              as UniqueKey,
       node: node == freezed
           ? _value._node
           : node // ignore: cast_nullable_to_non_nullable
@@ -204,8 +177,6 @@ class _$_CanvasComponentData implements _CanvasComponentData {
       this.startComponentPosition = Offset.zero,
       this.startFocalPosition = Offset.zero,
       required this.size,
-      required this.gKey,
-      required this.uKey,
       final Map<String, dynamic> node = const {}})
       : _node = node;
 
@@ -224,11 +195,6 @@ class _$_CanvasComponentData implements _CanvasComponentData {
   final Offset startFocalPosition;
   @override
   final Size size;
-// required Widget child,
-  @override
-  final GlobalKey<State<StatefulWidget>> gKey;
-  @override
-  final UniqueKey uKey;
   final Map<String, dynamic> _node;
   @override
   @JsonKey()
@@ -239,7 +205,7 @@ class _$_CanvasComponentData implements _CanvasComponentData {
 
   @override
   String toString() {
-    return 'CanvasComponentData(id: $id, label: $label, position: $position, startComponentPosition: $startComponentPosition, startFocalPosition: $startFocalPosition, size: $size, gKey: $gKey, uKey: $uKey, node: $node)';
+    return 'CanvasComponentData(id: $id, label: $label, position: $position, startComponentPosition: $startComponentPosition, startFocalPosition: $startFocalPosition, size: $size, node: $node)';
   }
 
   @override
@@ -255,8 +221,6 @@ class _$_CanvasComponentData implements _CanvasComponentData {
             const DeepCollectionEquality()
                 .equals(other.startFocalPosition, startFocalPosition) &&
             const DeepCollectionEquality().equals(other.size, size) &&
-            const DeepCollectionEquality().equals(other.gKey, gKey) &&
-            const DeepCollectionEquality().equals(other.uKey, uKey) &&
             const DeepCollectionEquality().equals(other._node, _node));
   }
 
@@ -269,8 +233,6 @@ class _$_CanvasComponentData implements _CanvasComponentData {
       const DeepCollectionEquality().hash(startComponentPosition),
       const DeepCollectionEquality().hash(startFocalPosition),
       const DeepCollectionEquality().hash(size),
-      const DeepCollectionEquality().hash(gKey),
-      const DeepCollectionEquality().hash(uKey),
       const DeepCollectionEquality().hash(_node));
 
   @JsonKey(ignore: true)
@@ -288,8 +250,6 @@ abstract class _CanvasComponentData implements CanvasComponentData {
       final Offset startComponentPosition,
       final Offset startFocalPosition,
       required final Size size,
-      required final GlobalKey<State<StatefulWidget>> gKey,
-      required final UniqueKey uKey,
       final Map<String, dynamic> node}) = _$_CanvasComponentData;
 
   @override
@@ -304,10 +264,6 @@ abstract class _CanvasComponentData implements CanvasComponentData {
   Offset get startFocalPosition;
   @override
   Size get size;
-  @override // required Widget child,
-  GlobalKey<State<StatefulWidget>> get gKey;
-  @override
-  UniqueKey get uKey;
   @override
   Map<String, dynamic> get node;
   @override
