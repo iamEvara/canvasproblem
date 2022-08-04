@@ -3,56 +3,33 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:json_dynamic_widget/json_dynamic_widget.dart';
 
 import '../models/export.dart';
-import 'export.dart';
 
-class CanvasPage extends StatefulWidget {
+class CanvasPage extends ConsumerStatefulWidget {
+  final CanvasComponentData data;
+
   const CanvasPage({
     Key? key,
     required this.data,
-    required this.componentID,
   }) : super(key: key);
-  final JsonWidgetData? data;
-  final String componentID;
+
   @override
-  State<CanvasPage> createState() => _CanvasPageState();
+  ConsumerState<CanvasPage> createState() => _CanvasPageState();
 }
 
-class _CanvasPageState extends State<CanvasPage> {
-  JsonWidgetData? data;
+class _CanvasPageState extends ConsumerState<CanvasPage> {
+  late final JsonWidgetData? data;
+  Widget? _built;
 
   @override
   void initState() {
     super.initState();
-    data = widget.data;
-  }
-
-  @override
-  void didUpdateWidget(CanvasPage oldWidget) {
-    super.didUpdateWidget(oldWidget);
-    if (oldWidget.data.toString() != widget.data.toString()) {
-      data = widget.data;
-    }
+    data = JsonWidgetData.fromDynamic(widget.data.node);
   }
 
   @override
   Widget build(BuildContext context) {
-    return Consumer(
-      builder: ((context, ref, child) {
-        final JsonWidgetData? data = JsonWidgetData.fromDynamic(
-          ref.watch(
-            canvasSP.select((value) => value.components
-                .firstWhere((CanvasComponentData element) =>
-                    element.id == widget.componentID)
-                .node),
-          ),
-        );
-        return data == null
-            ? const SizedBox.shrink()
-            : data.build(
-                context: context,
-                childBuilder: null,
-              );
-      }),
-    );
+    _built ??= data?.build(context: context);
+
+    return _built ?? const SizedBox.shrink();
   }
 }

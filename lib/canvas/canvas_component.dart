@@ -93,8 +93,7 @@ class _CanvasComponentState extends ConsumerState<CanvasComponent> {
               height: componentState.size.height,
               child: ClipRect(
                 child: CanvasPage(
-                  componentID: widget.id,
-                  data: null,
+                  data: componentState,
                 ),
               ),
             ),
