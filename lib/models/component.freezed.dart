@@ -21,8 +21,7 @@ mixin _$CanvasComponentData {
   Offset get position => throw _privateConstructorUsedError;
   Offset get startComponentPosition => throw _privateConstructorUsedError;
   Offset get startFocalPosition => throw _privateConstructorUsedError;
-  Size get size => throw _privateConstructorUsedError;
-  Widget get child => throw _privateConstructorUsedError;
+  Size get size => throw _privateConstructorUsedError; // required Widget child,
   GlobalKey<State<StatefulWidget>> get gKey =>
       throw _privateConstructorUsedError;
   UniqueKey get uKey => throw _privateConstructorUsedError;
@@ -45,7 +44,6 @@ abstract class $CanvasComponentDataCopyWith<$Res> {
       Offset startComponentPosition,
       Offset startFocalPosition,
       Size size,
-      Widget child,
       GlobalKey<State<StatefulWidget>> gKey,
       UniqueKey uKey,
       Map<String, dynamic> node});
@@ -68,7 +66,6 @@ class _$CanvasComponentDataCopyWithImpl<$Res>
     Object? startComponentPosition = freezed,
     Object? startFocalPosition = freezed,
     Object? size = freezed,
-    Object? child = freezed,
     Object? gKey = freezed,
     Object? uKey = freezed,
     Object? node = freezed,
@@ -98,10 +95,6 @@ class _$CanvasComponentDataCopyWithImpl<$Res>
           ? _value.size
           : size // ignore: cast_nullable_to_non_nullable
               as Size,
-      child: child == freezed
-          ? _value.child
-          : child // ignore: cast_nullable_to_non_nullable
-              as Widget,
       gKey: gKey == freezed
           ? _value.gKey
           : gKey // ignore: cast_nullable_to_non_nullable
@@ -132,7 +125,6 @@ abstract class _$$_CanvasComponentDataCopyWith<$Res>
       Offset startComponentPosition,
       Offset startFocalPosition,
       Size size,
-      Widget child,
       GlobalKey<State<StatefulWidget>> gKey,
       UniqueKey uKey,
       Map<String, dynamic> node});
@@ -157,7 +149,6 @@ class __$$_CanvasComponentDataCopyWithImpl<$Res>
     Object? startComponentPosition = freezed,
     Object? startFocalPosition = freezed,
     Object? size = freezed,
-    Object? child = freezed,
     Object? gKey = freezed,
     Object? uKey = freezed,
     Object? node = freezed,
@@ -187,10 +178,6 @@ class __$$_CanvasComponentDataCopyWithImpl<$Res>
           ? _value.size
           : size // ignore: cast_nullable_to_non_nullable
               as Size,
-      child: child == freezed
-          ? _value.child
-          : child // ignore: cast_nullable_to_non_nullable
-              as Widget,
       gKey: gKey == freezed
           ? _value.gKey
           : gKey // ignore: cast_nullable_to_non_nullable
@@ -217,7 +204,6 @@ class _$_CanvasComponentData implements _CanvasComponentData {
       this.startComponentPosition = Offset.zero,
       this.startFocalPosition = Offset.zero,
       required this.size,
-      required this.child,
       required this.gKey,
       required this.uKey,
       final Map<String, dynamic> node = const {}})
@@ -238,8 +224,7 @@ class _$_CanvasComponentData implements _CanvasComponentData {
   final Offset startFocalPosition;
   @override
   final Size size;
-  @override
-  final Widget child;
+// required Widget child,
   @override
   final GlobalKey<State<StatefulWidget>> gKey;
   @override
@@ -254,7 +239,7 @@ class _$_CanvasComponentData implements _CanvasComponentData {
 
   @override
   String toString() {
-    return 'CanvasComponentData(id: $id, label: $label, position: $position, startComponentPosition: $startComponentPosition, startFocalPosition: $startFocalPosition, size: $size, child: $child, gKey: $gKey, uKey: $uKey, node: $node)';
+    return 'CanvasComponentData(id: $id, label: $label, position: $position, startComponentPosition: $startComponentPosition, startFocalPosition: $startFocalPosition, size: $size, gKey: $gKey, uKey: $uKey, node: $node)';
   }
 
   @override
@@ -270,7 +255,6 @@ class _$_CanvasComponentData implements _CanvasComponentData {
             const DeepCollectionEquality()
                 .equals(other.startFocalPosition, startFocalPosition) &&
             const DeepCollectionEquality().equals(other.size, size) &&
-            const DeepCollectionEquality().equals(other.child, child) &&
             const DeepCollectionEquality().equals(other.gKey, gKey) &&
             const DeepCollectionEquality().equals(other.uKey, uKey) &&
             const DeepCollectionEquality().equals(other._node, _node));
@@ -285,7 +269,6 @@ class _$_CanvasComponentData implements _CanvasComponentData {
       const DeepCollectionEquality().hash(startComponentPosition),
       const DeepCollectionEquality().hash(startFocalPosition),
       const DeepCollectionEquality().hash(size),
-      const DeepCollectionEquality().hash(child),
       const DeepCollectionEquality().hash(gKey),
       const DeepCollectionEquality().hash(uKey),
       const DeepCollectionEquality().hash(_node));
@@ -305,7 +288,6 @@ abstract class _CanvasComponentData implements CanvasComponentData {
       final Offset startComponentPosition,
       final Offset startFocalPosition,
       required final Size size,
-      required final Widget child,
       required final GlobalKey<State<StatefulWidget>> gKey,
       required final UniqueKey uKey,
       final Map<String, dynamic> node}) = _$_CanvasComponentData;
@@ -322,9 +304,7 @@ abstract class _CanvasComponentData implements CanvasComponentData {
   Offset get startFocalPosition;
   @override
   Size get size;
-  @override
-  Widget get child;
-  @override
+  @override // required Widget child,
   GlobalKey<State<StatefulWidget>> get gKey;
   @override
   UniqueKey get uKey;

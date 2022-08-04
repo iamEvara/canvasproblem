@@ -9,13 +9,11 @@ class CanvasComponent extends ConsumerStatefulWidget {
   final String id;
   final int index;
   final Size size;
-  final Widget child;
 
   const CanvasComponent({
     Key? key,
     this.startingOffset = Offset.zero,
     required this.id,
-    required this.child,
     required this.index,
     this.size = const Size(200, 100),
   }) : super(key: key);

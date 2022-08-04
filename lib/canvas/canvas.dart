@@ -74,7 +74,6 @@ class _CanvasState extends ConsumerState<CanvasArea> {
           (element, index) => CanvasComponent(
             id: element.id,
             index: index,
-            child: element.child,
           ),
         );
 

@@ -12,7 +12,7 @@ class CanvasComponentData with _$CanvasComponentData {
     @Default(Offset.zero) Offset startComponentPosition,
     @Default(Offset.zero) Offset startFocalPosition,
     required Size size,
-    required Widget child,
+    // required Widget child,
     required GlobalKey gKey,
     required UniqueKey uKey,
     @Default({}) Map<String, dynamic> node,

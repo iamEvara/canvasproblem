@@ -708,7 +708,6 @@ final bankExampleComponent = CanvasComponentData(
   },
   label: "Frame 1",
   uKey: UniqueKey(),
-  child: Container(),
   id: const Uuid().v4(),
   size: const Size(340, 750),
   gKey: GlobalKey(),
