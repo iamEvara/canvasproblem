@@ -218,8 +218,11 @@ class CanvasState extends ChangeNotifier {
 
   /// set some values on the starting of the component scale to calculate its local position later;
   void onComponentScaleStart(int i, ScaleStartDetails details) {
-    components[i].startFocalPosition = details.localFocalPoint;
-    components[i].startComponentPosition = components[i].position;
+    components[i] = components[i].copyWith(
+      startFocalPosition: details.localFocalPoint,
+      startComponentPosition: components[i].position,
+    );
+
     notifyListeners();
   }
 
@@ -245,7 +248,7 @@ class CanvasState extends ChangeNotifier {
 
   /// updates [String] label
   void updateComponentLabel(int i, String label) {
-    components[i].label = label;
+    components[i] = components[i].copyWith(label: label);
     notifyListeners();
   }
 
@@ -257,7 +260,8 @@ class CanvasState extends ChangeNotifier {
 
   /// update component position using the [int] index which is the position of the component in the list
   void updateComponentPosition(int index, Offset newComponentPosition) {
-    components[index].position = newComponentPosition;
+    components[index] =
+        components[index].copyWith(position: newComponentPosition);
     notifyListeners();
   }
 
@@ -266,13 +270,13 @@ class CanvasState extends ChangeNotifier {
     if (index == null) {
       throw NullThrownError();
     }
-    components[index].node = node;
+    components[index] = components[index].copyWith(node: node);
     notifyListeners();
   }
 
   /// update component size using the [int] index which is the position of the component in the list
   void updateComponentSize(int index, Size size) {
-    components[index].size = size;
+    components[index] = components[index].copyWith(size: size);
     notifyListeners();
   }
 
